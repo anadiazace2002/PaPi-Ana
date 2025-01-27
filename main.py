@@ -285,12 +285,18 @@ def main_worker(gpu, ngpus_per_node, args):
     elif args.gpu is not None:
         torch.cuda.set_device(args.gpu)
         model = model.cuda(args.gpu)
+        '''
         # comment out the following line for debugging
         raise NotImplementedError("Only DistributedDataParallel is supported.")
+        '''
     else:
         # AllGather implementation (batch shuffle, queue update, etc.) in
         # this code only supports DistributedDataParallel.
+        '''
         raise NotImplementedError("Only DistributedDataParallel is supported.")
+        '''
+        model.cuda()
+        pass
     
     optimizer = torch.optim.SGD(model.parameters(), args.lr, momentum=args.momentum, weight_decay=args.weight_decay)
     
