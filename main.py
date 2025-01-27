@@ -169,7 +169,7 @@ logging.basicConfig(format='[%(asctime)s] - %(message)s',
 
 
 def main():
-
+    print("entrada main")
     args.pseudo_label_weight_range = [float(item) for item in args.pseudo_label_weight_range.split(',')]
     args.pro_weight_range = [float(item) for item in args.pro_weight_range.split(',')]
     
